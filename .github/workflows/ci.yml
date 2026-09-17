@@ -25,3 +25,6 @@ jobs:
         run: |
           cd backend
           pytest
+
+      - name: Build Docker image
+        run: docker build -t three-tier-backend:ci ./backend
