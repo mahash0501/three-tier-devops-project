@@ -44,3 +44,6 @@ jobs:
 
       - name: Tag Docker image
         run: docker tag three-tier-backend:ci ${{ secrets.DOCKER_USERNAME }}/three-tier-backend:latest
+
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/three-tier-backend:latest
