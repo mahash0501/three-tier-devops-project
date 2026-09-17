@@ -43,7 +43,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Tag Docker image
-        run: docker tag three-tier-backend:ci ${{ secrets.DOCKER_USERNAME }}/three-tier-backend:latest
+        run: docker tag three-tier-backend:ci ${{ secrets.DOCKER_USERNAME }}/three-tier-backend:${{ github.sha }}
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/three-tier-backend:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/three-tier-backend:${{ github.sha }}
