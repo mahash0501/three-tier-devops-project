@@ -2,7 +2,7 @@ backend:
   replicaCount: 2
   image:
     repository: ashh501/three-tier-backend
-    tag: ${{ github.sha }}
+    tag: 70244cac0dfab3873f20401aee5f09571fd4bb68
     pullPolicy: Always
 
 frontend:
