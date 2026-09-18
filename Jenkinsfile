@@ -35,5 +35,12 @@ pipeline {
                 '''
             }
         }
+       stage('Trivy Scan') {
+         steps {
+           sh '''
+            trivy image --severity HIGH,CRITICAL three-tier-backend:ci
+              '''
     }
+   }
+  }
 }
