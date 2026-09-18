@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'helm/three-tier-app/values.yaml'
+
 concurrency:
   group: main-ci
   cancel-in-progress: false
+
 jobs:
   test:
     if: "!contains(github.event.head_commit.message, 'Update backend image to')"
