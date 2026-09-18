@@ -27,5 +27,13 @@ pipeline {
                 '''
             }
         }
+
+        stage('Docker Build') {
+            steps {
+                sh '''
+                    docker build -t three-tier-backend:ci ./backend
+                '''
+            }
+        }
     }
 }
