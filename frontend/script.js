@@ -1,4 +1,4 @@
-fetch("http://localhost:5000/api/users")
+fetch("/api/users")
     .then(response => response.json())
     .then(users => {
         const table = document.getElementById("users");
