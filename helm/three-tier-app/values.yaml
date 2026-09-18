@@ -8,9 +8,9 @@ backend:
 frontend:
   replicaCount: 1
   image:
-    repository: three-tier-frontend
-    tag: v2
-    pullPolicy: Never
+    repository: ashh501/three-tier-frontend
+    tag: e82621efb50e0839a76168ac4c95e7491fad71ee
+    pullPolicy: Always
 
 backendService:
   type: ClusterIP
