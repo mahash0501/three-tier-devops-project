@@ -10,9 +10,12 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
-                echo 'Running application tests...'
-            }
-        }
+    steps {
+        sh '''
+            cd backend
+            python3 -m pytest
+        '''
+    }
+   }
     }
 }
