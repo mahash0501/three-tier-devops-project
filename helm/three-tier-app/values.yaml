@@ -2,7 +2,7 @@ backend:
   replicaCount: 2
   image:
     repository: ashh501/three-tier-backend
-    tag: 623c82bc3c5d057c3b703dece904f0618738054b
+    tag: aefabc057fbf0c5c12a809d5fbbfb0a30620b7ff
     pullPolicy: Always
 
 frontend:
