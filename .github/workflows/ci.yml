@@ -56,7 +56,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/three-tier-backend:${{ github.sha }}
       - name: Update Helm image tag
         run: |
-          sed -i "s/tag: .*/tag: ${{ github.sha }}/" helm/three-tier-app/values.yaml
+          sed -i '/^backend:/,/^frontend:/ s/tag: .*/tag: ${{ github.sha }}/' helm/three-tier-app/values.yaml
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
