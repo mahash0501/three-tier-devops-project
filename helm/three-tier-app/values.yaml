@@ -6,7 +6,7 @@ backend:
     pullPolicy: Always
 
 frontend:
-  replicaCount: 1
+  replicaCount: 2
   image:
     repository: ashh501/three-tier-frontend
     tag: cabc6002e094fe62f5de0e0bca4177012188ef5d
