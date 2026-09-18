@@ -19,3 +19,5 @@ jobs:
           test -f frontend/style.css
           test -f frontend/script.js
           echo "Frontend files are present"
+      - name: Build Docker image
+        run: docker build -t three-tier-frontend:ci ./frontend
