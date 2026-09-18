@@ -9,13 +9,22 @@ pipeline {
             }
         }
 
+        stage('Install Dependencies') {
+            steps {
+                sh '''
+                    cd backend
+                    python3 -m pip install -r requirements.txt
+                '''
+            }
+        }
+
         stage('Test') {
-    steps {
-        sh '''
-            cd backend
-            python3 -m pytest
-        '''
-    }
-   }
+            steps {
+                sh '''
+                    cd backend
+                    python3 -m pytest
+                '''
+            }
+        }
     }
 }
