@@ -18,8 +18,7 @@ def get_db_connection():
 
 @app.route("/")
 def home():
-    return "Hello from 3-Tier DevOps Project!"
-
+    return "Hello from backend - GitOps v2"
 
 @app.route("/health")
 def health():
