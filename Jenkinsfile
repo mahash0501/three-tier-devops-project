@@ -13,7 +13,8 @@ pipeline {
             steps {
                 sh '''
                     cd backend
-                    python3 -m pip install -r requirements.txt
+                    python3 -m venv venv
+                    venv/bin/pip install -r requirements.txt
                 '''
             }
         }
@@ -22,7 +23,7 @@ pipeline {
             steps {
                 sh '''
                     cd backend
-                    python3 -m pytest
+                    venv/bin/python -m pytest
                 '''
             }
         }
