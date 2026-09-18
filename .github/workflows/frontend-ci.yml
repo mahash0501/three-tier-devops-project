@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+concurrency:
+  group: main-ci
+  cancel-in-progress: false
 
 jobs:
   test:
