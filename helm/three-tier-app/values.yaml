@@ -2,14 +2,14 @@ backend:
   replicaCount: 2
   image:
     repository: ashh501/three-tier-backend
-    tag: c817be84497befc08f660e972796eadbe2eb7785
+    tag: cabc6002e094fe62f5de0e0bca4177012188ef5d
     pullPolicy: Always
 
 frontend:
   replicaCount: 1
   image:
     repository: ashh501/three-tier-frontend
-    tag: e1c8838343e71804bb1ce8f4981ab082a6e964d0
+    tag: cabc6002e094fe62f5de0e0bca4177012188ef5d
     pullPolicy: Always
 
 backendService:
