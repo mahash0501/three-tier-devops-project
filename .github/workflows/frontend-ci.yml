@@ -21,3 +21,9 @@ jobs:
           echo "Frontend files are present"
       - name: Build Docker image
         run: docker build -t three-tier-frontend:ci ./frontend
+      - name: Scan Docker image with Trivy
+        uses: aquasecurity/trivy-action@0.35.0
+        with:
+          image-ref: three-tier-frontend:ci
+          severity: HIGH,CRITICAL
+          exit-code: "0"
