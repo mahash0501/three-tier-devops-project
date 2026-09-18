@@ -42,5 +42,23 @@ pipeline {
               '''
     }
    }
+
+
+      stage('Docker Push') {
+         steps {
+            withCredentials([usernamePassword(
+               credentialsId: 'dockerhub-creds',
+               usernameVariable: 'DOCKER_USERNAME',
+               passwordVariable: 'DOCKER_PASSWORD'
+                 )]) {
+                 sh '''
+                    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                    docker tag three-tier-backend:ci $DOCKER_USERNAME/three-tier-backend:ci
+                    docker push $DOCKER_USERNAME/three-tier-backend:ci
+                    docker logout
+                    '''
+        }
+    }
+}
   }
 }
