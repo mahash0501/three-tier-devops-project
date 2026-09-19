@@ -18,6 +18,8 @@ spec:
           imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
           ports:
             - containerPort: 5000
-          env:
-            - name: DB_PASSWORD
-              value: "postgres123"
+          envFrom:
+            - configMapRef:
+                name: backend-config
+            - secretRef:
+                name: backend-secret
