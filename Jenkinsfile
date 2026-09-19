@@ -67,6 +67,31 @@ pipeline {
                 grep -A2 "repository: ashh501/three-tier-backend" helm/three-tier-app/values.yaml
                '''
       }
-    }   
+    } 
+    stage('Git Commit') {
+    steps {
+        sh '''
+            git config user.name "Jenkins"
+            git config user.email "jenkins@localhost"
+
+            git add helm/three-tier-app/values.yaml
+            git commit -m "Update backend image to $GIT_COMMIT" || echo "No changes to commit"
+        '''
+    }
+}
+
+    stage('Git Push') {
+        steps {
+            withCredentials([usernamePassword(
+                credentialsId: 'github-push',
+                usernameVariable: 'GIT_USERNAME',
+                passwordVariable: 'GIT_PASSWORD'
+                     )]) {
+                sh '''
+                    git push https://$GIT_USERNAME:$GIT_PASSWORD@github.com/mahash0501/three-tier-devops-project.git HEAD:main
+                    '''
+             }
+         }
+        }
   }
 }
