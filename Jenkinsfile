@@ -36,13 +36,12 @@ pipeline {
     }
 }
        stage('Trivy Scan') {
-         steps {
-           sh '''
-            trivy image --severity HIGH,CRITICAL three-tier-backend:ci
-              '''
+    steps {
+        sh '''
+            trivy image --severity HIGH,CRITICAL three-tier-backend:$GIT_COMMIT
+        '''
     }
-   }
-
+}
 
       stage('Docker Push') {
     steps {
