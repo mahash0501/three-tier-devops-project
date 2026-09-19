@@ -59,5 +59,14 @@ pipeline {
         }
     }
 }
+    stage('Update Helm Image Tag') {
+        steps {
+            sh '''
+                sed -i "/repository: ashh501\\/three-tier-backend/{n;s/tag:.*/tag: $GIT_COMMIT/;}" helm/three-tier-app/values.yaml
+                echo "Updated backend image tag:"
+                grep -A2 "repository: ashh501/three-tier-backend" helm/three-tier-app/values.yaml
+               '''
+      }
+    }   
   }
 }
