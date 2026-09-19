@@ -17,5 +17,5 @@ backendService:
   port: 5000
 
 frontendService:
-  type: NodePort
+  type: ClusterIP
   port: 80
